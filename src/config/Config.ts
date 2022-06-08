@@ -12,7 +12,8 @@ export const db = {
     port: process.env.DB_PORT || '',
     user: process.env.DB_USER || '',
     password: process.env.DB_USER_PWD || '',
-    connectionString: 'mongodb://' + process.env.DB_HOST + ":" + process.env.DB_PORT + "/" + process.env.DB_NAME
+    // connectionString: 'mongodb://' + process.env.DB_HOST + ":" + process.env.DB_PORT + "/" + process.env.DB_NAME
+    connectionString: "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_USER_PWD + "@cluster0.5uony.mongodb.net/" + process.env.DB_NAME + "?retryWrites=true&w=majority"
 };
 
 export const prodDb = {
