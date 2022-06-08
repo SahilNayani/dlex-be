@@ -20,14 +20,22 @@ export default {
             "string.pattern.base": ResponseMessages.CONTACT_NUMBER_STRING,
             "string.empty": ResponseMessages.CONTACT_NUMBER_REQUIRED
         }),
-        password: Joi.string().required().messages({
+        password: Joi.string().regex(ValidationRegex.PASSWORD_REGEX).required().messages({
             "any.required": ResponseMessages.PASSWORD_REQUIRED,
             "string.base": ResponseMessages.PASSWORD_STRING,
-            "string.empty": ResponseMessages.PASSWORD_REQUIRED
+            "string.empty": ResponseMessages.PASSWORD_REQUIRED,
+            "string.pattern.base": ResponseMessages.PASSWORD_PATTERN
         })
     }),
     loginUser: Joi.object().keys({
-        email: Joi.string().regex(ValidationRegex.EMAIL_REGEX).required(),
-        password: Joi.string().required()
+        email: Joi.string().regex(ValidationRegex.EMAIL_REGEX).required().messages({
+            "any.required": ResponseMessages.EMAIL_REQUIRED,
+            "string.pattern.base": ResponseMessages.EMAIL_ID_INCORRECT,
+            "string.base": ResponseMessages.EMAIL_STRING,
+            "string.empty": ResponseMessages.EMAIL_REQUIRED
+        }),
+        password: Joi.string().required().messages({
+            "any.required": ResponseMessages.PASSWORD_REQUIRED
+        })
     })
 };

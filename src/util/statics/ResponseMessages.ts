@@ -17,5 +17,6 @@ export default class ResponseMessages {
 
     public static get PASSWORD_REQUIRED(): string {return "Password is required"}
     public static get PASSWORD_STRING(): string {return "Password must be string"}
+    public static get PASSWORD_PATTERN(): string {return "Password must be one upper, lower, number, special and minimum 8 character."}
 }
 
